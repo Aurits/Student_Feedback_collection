@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confirm Delete</title>
+</head>
+
+<body>
+    <h2>Confirm Delete</h2>
+    <p>Are you sure you want to delete the feedback for {{ feedback.courseName }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'courses' %}">Cancel</a>
+        <!-- Replace 'feedback_list' with the name of your feedback list URL pattern -->
+    </form>
+</body>
+
+</html>
