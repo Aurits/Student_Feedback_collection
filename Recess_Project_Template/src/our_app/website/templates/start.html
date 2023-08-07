@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f1f1;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .section-title1 {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h5 {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .notice {
+            color: #dc3545;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .continue-link {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .continue-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-xl-10 col-lg-8">
+            <div class="section-title1">
+                <h2>Hello! dear student,</h2>
+                <br>
+                <h5>Help us Improve Teaching and Learning!</h5>
+                <p>We value your feedback about your instructors. Please take a moment to fill out the form below and
+                    let us know your thoughts on various aspects of the instruction you received.</p>
+                <p class="notice">Your response will be treated with the utmost confidentiality. Please respond honestly
+                    and without bias.</p>
+                <a href="{% url 'course'%}" class="continue-link">Continue</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
