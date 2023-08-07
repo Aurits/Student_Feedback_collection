@@ -1,0 +1,371 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Mak Feedback</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png"> -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- ========================= CSS here ========================= -->
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap-5.0.0-beta1.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/LineIcons.2.0.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/tiny-slider.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/glightbox.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+
+  <style>
+    /* Style for star icons */
+    .rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      display: inline-block;
+      position: relative;
+    }
+
+    .rating input {
+      display: none;
+    }
+
+    .rating label {
+      color: #ccc;
+      font-size: 30px;
+      padding: 0 2px;
+      cursor: pointer;
+    }
+
+    .rating label:before {
+      content: "\2605";
+    }
+
+    .rating input:checked~label:before,
+    .rating label:hover~label:before {
+      content: "\2605";
+      color: #ffdd00;
+    }
+  </style>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+  <!-- ========================= preloader start ========================= -->
+  <div class="preloader">
+    <div class="loader">
+      <div class="ytp-spinner">
+        <div class="ytp-spinner-container">
+          <div class="ytp-spinner-rotator">
+            <div class="ytp-spinner-left">
+              <div class="ytp-spinner-circle"></div>
+            </div>
+            <div class="ytp-spinner-right">
+              <div class="ytp-spinner-circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- preloader end -->
+
+  <!-- ========================= header start ========================= -->
+  <header class="header navbar-area">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">
+              <img src="{% static 'assets/img/logo.png' %}" width="45px" height="50px" alt="logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+              <ul id="nav" class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="page-scroll" href="{% url 'home'%}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="page-scroll" href="{% url 'course'%}">course</a>
+                </li>
+                <li class="nav-item">
+                  <a class="page-scroll" href="{% url 'instructor' %}">instructor</a>
+                </li>
+                <li class="nav-item">
+                  <a class="page-scroll" href="{% url 'facility' %}">facility</a>
+                </li>
+
+
+              </ul>
+            </div>
+            <!-- navbar collapse -->
+          </nav>
+          <!-- navbar -->
+        </div>
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </header>
+  <!-- ========================= header end ========================= -->
+
+  <!-- ========================= page-banner-section start ========================= -->
+  <section class="page-banner-section pt-75 pb-75 img-bg" style="
+        background-image: url('{% static 'assets/img/bg/common-bg.svg' %}');
+      ">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="banner-content">
+            <h2 class="text-white">Facility Feedback Form</h2>
+            <div class="page-breadcrumb">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item" aria-current="page"><a href="{% url 'home'%}">Feedback Collection System |
+                      Makerere University</a></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================= page-banner-section end ========================= -->
+
+  <!-- ========================= contact-section start ========================= -->
+
+  <!-- ========================= contact-section start ========================= -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="contact-form-wrapper">
+            <div class="row">
+              <div class="col-xl-10 col-lg-8 mx-auto">
+                <div class="section-title1  mb-50">
+                  <h2 class="wow fadeInDown text-center" data-wow-delay=".2s" style="color: #333">Fill here
+                  </h2>
+                  <br>
+
+                </div>
+              </div>
+            </div>
+
+            <form method="post" class="needs-validation" novalidate>
+              {% csrf_token %}
+
+              {% if form.errors %}
+              <div class="alert alert-danger">
+                {% for field_errors in form.errors %}
+                {% for error in field_errors %}
+                {{ error }}
+                {% endfor %}
+                {% endfor %}
+              </div>
+              {% endif %}
+
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="{{ form.name.name }}" id="name" placeholder="Facility name"
+                    class="form-control m-3" required>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <input type="text" name="{{ form.facility_college.name }}" id="facility_college"
+                    placeholder="College of facility" class="form-control m-3" required>
+                </div>
+              </div>
+
+              <div class="container mt-4 row">
+                <div class="col-md-6 mb-5 form-group">
+                  <label for="{{ form.facility_accessibility.id_for_label }}">Facility accessibility:</label>
+                  <select class="form-control" id="{{ form.facility_accessibility.id_for_label }}"
+                    name="{{ form.facility_accessibility.name }}" required>
+                    <option value="">Select one</option>
+                    {% for value, label in form.facility_accessibility.field.choices %}
+                    <option value="{{ value }}">{{ label }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="col-md-6 mb-5">
+                  <p>Cleanliness and Hygiene</p>
+                  <span class="rating">
+                    {% for value, label in form.cleanliness.field.choices %}
+                    <input type="radio" id="star{{ value }}_cleanliness" name="{{ form.cleanliness.name }}"
+                      value="{{ value }}" required>
+                    <label for="star{{ value }}_cleanliness">{{ label }}</label>
+                    {% endfor %}
+                  </span>
+                </div>
+
+                <div class="col-md-6 mb-5">
+                  <p>Maintenance</p>
+                  <span class="rating">
+                    {% for value, label in form.maintenance.field.choices %}
+                    <input type="radio" id="star{{ value }}_maintenance" name="{{ form.maintenance.name }}"
+                      value="{{ value }}" required>
+                    <label for="star{{ value }}_maintenance">{{ label }}</label>
+                    {% endfor %}
+                  </span>
+                </div>
+
+                <div class="col-md-6 mb-5">
+                  <p>Safety and Security</p>
+                  <span class="rating">
+                    {% for value, label in form.safety.field.choices %}
+                    <input type="radio" id="star{{ value }}_safety" name="{{ form.safety.name }}" value="{{ value }}"
+                      required>
+                    <label for="star{{ value }}_safety">{{ label }}</label>
+                    {% endfor %}
+                  </span>
+                </div>
+
+                <div class="col-md-6 mb-5">
+                  <p>Resource Availability</p>
+                  <span class="rating">
+                    {% for value, label in form.resource_availability.field.choices %}
+                    <input type="radio" id="star{{ value }}_resource" name="{{ form.resource_availability.name }}"
+                      value="{{ value }}" required>
+                    <label for="star{{ value }}_resource">{{ label }}</label>
+                    {% endfor %}
+                  </span>
+                </div>
+
+                <div class="col-md-6 mb-5">
+                  <p>Overall facility rating</p>
+                  <span class="rating">
+                    {% for value, label in form.facility_rating.field.choices %}
+                    <input type="radio" id="star{{ value }}_overall" name="{{ form.facility_rating.name }}"
+                      value="{{ value }}" required>
+                    <label for="star{{ value }}_overall">{{ label }}</label>
+                    {% endfor %}
+                  </span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 form-group">
+                  <textarea name="{{ form.comment.name }}" id=""
+                    placeholder="Please provide any additional comments or suggestions about our college facilities."
+                    rows="5" class="form-control" required></textarea>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-12">
+                  <div class="button text-center">
+                    <button type="submit" class="theme-btn">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================= contact-section end ========================= -->
+  <!-- ========================= contact-section end ========================= -->
+
+  <section id="contact" class="contact-section cta-bg img-bg pt-110 pb-100">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-xl-5 col-lg-7">
+          <div class="section-title mb-60">
+            <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="
+                  visibility: visible;
+                  animation-delay: 0.4s;
+                  animation-name: fadeInUp;
+                ">
+              Thank you for participting in this exercise of rating your
+              facilities.
+            </h2>
+            <p class="text-white wow fadeInUp" data-wow-delay=".6s" style="
+                  visibility: visible;
+                  animation-delay: 0.6s;
+                  animation-name: fadeInUp;
+                ">
+              Your Feedback helps us all.
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-7 col-lg-5">
+          <div class="contact-btn text-start text-lg-end"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ========================= footer start ========================= -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="copyright-area">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="footer-social-links">
+              <ul class="d-flex">
+                <li>
+                  <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ========================= footer end ========================= -->
+
+  <!-- ========================= scroll-top ========================= -->
+  <a href="#" class="scroll-top">
+    <i class="lni lni-arrow-up"></i>
+  </a>
+
+  <!-- ========================= JS here ========================= -->
+  <script src="{% static 'assets/js/bootstrap.bundle-5.0.0-beta1.min.js' %}"></script>
+  <script src="{% static 'assets/js/contact-form.js' %}"></script>
+  <script src="{% static 'assets/js/count-up.min.js' %}"></script>
+  <script src="{% static 'assets/js/tiny-slider.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/js/wow.min.js' %}"></script>
+  <script src="{% static 'assets/js/imagesloaded.min.js' %}"></script>
+  <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>
