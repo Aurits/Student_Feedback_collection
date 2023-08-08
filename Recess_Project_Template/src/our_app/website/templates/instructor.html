@@ -1,0 +1,400 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mak Feedback</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png"> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-5.0.0-beta1.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+
+    <style>
+        /* Additional CSS styles for spacing */
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <style>
+        /* Style for star icons */
+        .rating {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            display: inline-block;
+            position: relative;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            color: #ccc;
+            font-size: 30px;
+            padding: 0 2px;
+            cursor: pointer;
+        }
+
+        .rating label:before {
+            content: "\2605";
+        }
+
+        .rating input:checked~label:before,
+        .rating label:hover~label:before {
+            content: "\2605";
+            color: #ffdd00;
+        }
+
+        .form-group input {
+            padding: 18px 25px;
+            border-radius: 30px;
+            border: 1px solid #F4EEFB;
+            margin-bottom: 25px;
+            width: 100%;
+            transition: all 0.3s ease-out 0s;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- ========================= preloader start ========================= -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="#">
+                            <img src="{% static 'assets/img/logo.png' %}" width="45px" height="50px" alt="logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <ul id="nav" class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="page-scroll " href="{% url 'home'%}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{% url 'course'%}">course</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{% url 'instructor' %}">instructor</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll " href="{% url 'facility' %}">facility</a>
+                                </li>
+
+
+                            </ul>
+
+                        </div> <!-- navbar collapse -->
+                    </nav> <!-- navbar -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+
+    </header>
+    <!-- ========================= header end ========================= -->
+
+    <!-- ========================= page-banner-section start ========================= -->
+    <section class="page-banner-section pt-75 pb-75 img-bg"
+        style="background-image: url('{% static 'assets/img/bg/common-bg.svg' %}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="banner-content">
+                        <h2 class="text-white">Instructor Feedback Form</h2>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'home'%}">Feedback
+                                            Collection System | Makerere University</a></li>
+
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========================= page-banner-section end ========================= -->
+
+    <!-- ========================= contact-section start ========================= -->
+    <section class="contact-section " style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="contact-form-wrapper"
+                        style="background-color: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                        <div class="row">
+                            <div class="col-xl-10 col-lg-8 mx-auto">
+                                <div class="section-title1  mb-50">
+                                    <h2 class="wow fadeInDown text-center" data-wow-delay=".2s" style="color: #333">Fill
+                                        here
+                                    </h2>
+                                    <br>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <form method="post" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            <div class="container row text-center">
+                                <div class="form-group col-md-6">
+                                    <input type="text" name="{{ form.instructorName.name }}"
+                                        id="{{ form.instructorName.auto_id }}" class="form-control rounded"
+                                        placeholder="Instructor Name" required />
+                                    <div class="invalid-feedback">Please provide the instructor's name.</div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <input type="text" name="{{ form.department.name }}"
+                                        id="{{ form.department.auto_id }}" class="form-control rounded"
+                                        placeholder="Department" required />
+                                    <div class="invalid-feedback">Please provide the department name.</div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <input type="text" name="{{ form.courseUnit.name }}"
+                                        id="{{ form.courseUnit.auto_id }}" class="form-control rounded"
+                                        placeholder="Course Unit" required />
+                                    <div class="invalid-feedback">Please provide the course unit.</div>
+                                </div>
+
+                                <span class="wow fadeInDown mb-5" style="color: #333;">HOW WOULD YOU RATE YOUR
+                                    INSTRUCTOR IN THE FOLLOWING?</span>
+
+                                <!-- Knowledge -->
+                                <div class="form-group col-md-6 mt-3">
+                                    <div class="rating">
+                                        <p>Knowledge<span></span></p>
+                                        <input type="radio" id="star5_knowledge" name="{{ form.knowledge.name }}"
+                                            value="5" required />
+                                        <label for="star5_knowledge"></label>
+                                        <input type="radio" id="star4_knowledge" name="{{ form.knowledge.name }}"
+                                            value="4" />
+                                        <label for="star4_knowledge"></label>
+                                        <input type="radio" id="star3_knowledge" name="{{ form.knowledge.name }}"
+                                            value="3" />
+                                        <label for="star3_knowledge"></label>
+                                        <input type="radio" id="star2_knowledge" name="{{ form.knowledge.name }}"
+                                            value="2" />
+                                        <label for="star2_knowledge"></label>
+                                        <input type="radio" id="star1_knowledge" name="{{ form.knowledge.name }}"
+                                            value="1" />
+                                        <label for="star1_knowledge"></label>
+                                    </div>
+                                    <div class="invalid-feedback">Please rate the instructor's knowledge.</div>
+                                </div>
+
+                                <!-- Communication -->
+                                <div class="form-group col-md-6 mt-3">
+                                    <div class="rating">
+                                        <p>Communication<span></span></p>
+                                        <input type="radio" id="star5_communication"
+                                            name="{{ form.communication.name }}" value="5" required />
+                                        <label for="star5_communication"></label>
+                                        <input type="radio" id="star4_communication"
+                                            name="{{ form.communication.name }}" value="4" />
+                                        <label for="star4_communication"></label>
+                                        <input type="radio" id="star3_communication"
+                                            name="{{ form.communication.name }}" value="3" />
+                                        <label for="star3_communication"></label>
+                                        <input type="radio" id="star2_communication"
+                                            name="{{ form.communication.name }}" value="2" />
+                                        <label for="star2_communication"></label>
+                                        <input type="radio" id="star1_communication"
+                                            name="{{ form.communication.name }}" value="1" />
+                                        <label for="star1_communication"></label>
+                                    </div>
+                                    <div class="invalid-feedback">Please rate the instructor's communication.</div>
+                                </div>
+
+                                <!-- Teaching Style -->
+                                <div class="form-group col-md-6 mt-3">
+                                    <div class="rating">
+                                        <p>Teaching style<span></span></p>
+                                        <input type="radio" id="star5_teachingStyle"
+                                            name="{{ form.teachingStyle.name }}" value="5" required />
+                                        <label for="star5_teachingStyle"></label>
+                                        <input type="radio" id="star4_teachingStyle"
+                                            name="{{ form.teachingStyle.name }}" value="4" />
+                                        <label for="star4_teachingStyle"></label>
+                                        <input type="radio" id="star3_teachingStyle"
+                                            name="{{ form.teachingStyle.name }}" value="3" />
+                                        <label for="star3_teachingStyle"></label>
+                                        <input type="radio" id="star2_teachingStyle"
+                                            name="{{ form.teachingStyle.name }}" value="2" />
+                                        <label for="star2_teachingStyle"></label>
+                                        <input type="radio" id="star1_teachingStyle"
+                                            name="{{ form.teachingStyle.name }}" value="1" />
+                                        <label for="star1_teachingStyle"></label>
+                                    </div>
+                                    <div class="invalid-feedback">Please rate the instructor's teaching style.</div>
+                                </div>
+
+                                <!-- Responsiveness -->
+                                <div class="form-group col-md-6 mt-3">
+                                    <div class="rating">
+                                        <p>Responsiveness<span></span></p>
+                                        <input type="radio" id="star5_responsiveness"
+                                            name="{{ form.responsiveness.name }}" value="5" required />
+                                        <label for="star5_responsiveness"></label>
+                                        <input type="radio" id="star4_responsiveness"
+                                            name="{{ form.responsiveness.name }}" value="4" />
+                                        <label for="star4_responsiveness"></label>
+                                        <input type="radio" id="star3_responsiveness"
+                                            name="{{ form.responsiveness.name }}" value="3" />
+                                        <label for="star3_responsiveness"></label>
+                                        <input type="radio" id="star2_responsiveness"
+                                            name="{{ form.responsiveness.name }}" value="2" />
+                                        <label for="star2_responsiveness"></label>
+                                        <input type="radio" id="star1_responsiveness"
+                                            name="{{ form.responsiveness.name }}" value="1" />
+                                        <label for="star1_responsiveness"></label>
+                                    </div>
+                                    <div class="invalid-feedback">Please rate the instructor's responsiveness.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group h-25">
+                                <textarea name="{{ form.additional_comments.name }}"
+                                    id="{{ form.additional_comments.auto_id }}" class="form-control rounded"
+                                    placeholder="Additional Comments"></textarea>
+                                <div class="invalid-feedback">Please provide additional comments.</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="button text-center">
+                                        <button type="submit" class="theme-btn">Submit Feedback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========================= contact-section end ========================= -->
+
+
+
+
+    <section id="contact" class="contact-section cta-bg img-bg pt-110 pb-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-5 col-lg-7">
+                    <div class="section-title mb-60">
+                        <h2 class="text-white wow fadeInUp" data-wow-delay=".4s"
+                            style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Thank you for
+                            participting in this exercise of rating your instructor.</h2>
+                        <p class="text-white wow fadeInUp" data-wow-delay=".6s"
+                            style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Your Feedback
+                            helps us all.</p>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-5">
+                    <div class="contact-btn text-start text-lg-end">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ========================= footer start ========================= -->
+    <footer class="footer">
+        <div class="container text-center">
+
+            <div class="copyright-area">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="footer-social-links">
+                            <ul class="d-flex">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ========================= footer end ========================= -->
+
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-arrow-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="{% static 'assets/js/bootstrap.bundle-5.0.0-beta1.min.js' %}"></script>
+    <script src="{% static 'assets/js/contact-form.js' %}"></script>
+    <script src="{% static 'assets/js/count-up.min.js' %}"></script>
+    <script src="{% static 'assets/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>
