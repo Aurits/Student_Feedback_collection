@@ -233,7 +233,7 @@
                             {% csrf_token %}
                             <div class=" container row">
                                 <div class="col-md-6">
-                                    <input type="text" name="{{ courseForm.courseName.name }}"
+                                    <input type="text" style="color: blue" name="{{ courseForm.courseName.name }}"
                                         id="{{ courseForm.courseName.auto_id }}" class="form-control rounded"
                                         placeholder="Course Name*" required />
                                     <div class="invalid-feedback">Please provide the Course's name.</div>
